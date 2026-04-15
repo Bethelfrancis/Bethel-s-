@@ -61,7 +61,8 @@ const Footer = () => {
             <div className="text-center pt-6 text-base">
                 <p>&copy; {new Date().getFullYear()} Bethel. All rights reserved. </p>
             </div>
-
+            
+   
         </footer>
     );
 }
