@@ -20,18 +20,12 @@ const Skills = () => {
                     Skills
                 </button>
 
-                <motion.div 
+                <motion.h2
                     variants={fadeInUp}
-                    className="mt-4 flex flex-col lg:flex-row lg:items-start justify-between gap-6 lg:gap-10"
+                    className="mt-7 text-foreground lg:text-3xl text-2xl lg:max-w-6xl font-semibold"
                 >
-                    <h2 className="text-foreground lg:text-3xl text-2xl lg:max-w-2xl font-semibold">
-                        The Tools I Use to Build With
-                    </h2>
-                    
-                    <p className="text-black text-base lg:max-w-lg lg:mt-0 ">
-                        I design and build scalable frontend systems that balance performance, usability, and clean architecture—using modern technologies to deliver reliable, production-ready web experiences.
-                    </p>
-                </motion.div>
+                    I design and build scalable frontend systems that balance performance, usability, and clean architecture—using modern technologies to deliver reliable, production-ready web experiences.
+                </motion.h2>
             </motion.div>
 
             <div

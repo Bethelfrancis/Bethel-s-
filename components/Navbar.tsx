@@ -38,7 +38,7 @@ const Navbar = () => {
                 </nav>
 
                 <button className="bg-transparent text-base text-foreground rounded-full px-4 py-1.5 border border-foreground cursor-pointer font-semibold">
-                    Contact Me
+                    Download CV
                 </button>
             </div>
 

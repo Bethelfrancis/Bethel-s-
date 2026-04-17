@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { footerNav } from "@/lib/content";
+import { SocialLinks } from "./SocialLinks";
 
 const Footer = () => {
     return (
@@ -18,19 +19,19 @@ const Footer = () => {
             </div>
 
 
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mt-20 border-y-2 border-black py-10">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mt-20 border-y-2 border-black py-10 space-y-10">
 
-                <div className="max-w-sm">
+                <div className="lg:max-w-xs">
                     <Link href="#home" className="text-2xl font-medium">
                         Bethel
                     </Link>
                     <p className="mt-4 text-sm leading-7 text-slate-300 lg:text-base">
                         Available for freelance work and collaboration, focused on building scalable, high-performance frontend applications.
                     </p>
-
+                    <SocialLinks />
                 </div>
 
-                <div className="w-full flex justify-between gap-8 ml-50">
+                {/* <div className="w-full flex justify-between gap-8 ml-50"> */}
                     <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.24em]">Contact</p>
                         <p className="mt-4 text-sm text-slate-300">bethelndegonekwu@gmail.com</p>
@@ -54,7 +55,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     
-                </div>
+                {/* </div> */}
 
             </div>
 
