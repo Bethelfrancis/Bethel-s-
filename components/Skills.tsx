@@ -4,8 +4,27 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
 import { skills } from "@/lib/content";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 const Skills = () => {
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const speedRef = useRef(1);
+
+    useEffect(() => {
+        const element = scrollRef.current;
+        if (!element) return;
+
+        let position = 0;
+        const animate = () => {
+            position -= speedRef.current;
+            if (position <= -element.scrollWidth / 2) position = 0;
+            element.style.transform = `translateX(${position}px)`;
+            requestAnimationFrame(animate);
+        };
+        animate();
+    }, []);
+
+
     return (
         <motion.section
             id="skill"
@@ -33,7 +52,12 @@ const Skills = () => {
                 className="w-full overflow-hidden mt-7 mask-(--mask-fade-side)"
             >
     
-                <div className="flex w-max animate-scroll py-10 gap-5">
+                <div 
+                    ref={scrollRef}
+                    onMouseEnter={() => speedRef.current = 1.5}
+                    onMouseLeave={() => speedRef.current = 2.4}
+                    className="flex w-max py-10 gap-5"
+                >
                     {
                         skills.concat(skills).map((skill, index) => (
                             <span 

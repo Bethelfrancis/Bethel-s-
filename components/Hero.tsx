@@ -4,8 +4,25 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { hero } from "@/lib/content";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const speedRef = useRef(1);
+
+    useEffect(() => {
+        const element = scrollRef.current;
+        if (!element) return;
+
+        let position = 0;
+        const animate = () => {
+            position -= speedRef.current;
+            if (position <= -element.scrollWidth / 2) position = 0;
+            element.style.transform = `translateX(${position}px)`;
+            requestAnimationFrame(animate);
+        };
+        animate();
+    }, []);
     return (
         <section id="home" className="relative overflow-hidden top-12">
             <motion.div

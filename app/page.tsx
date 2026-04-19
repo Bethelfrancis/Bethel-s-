@@ -9,6 +9,7 @@ import Projects from "@/components/Projects";
 import Navbar from "@/components/Navbar";
 import Skills from "@/components/Skills";
 import Sponsor from "@/components/Sponsor";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Experience />
         <Projects />
         <Skills />
+        <Contact />
         <Footer />
       </PageTransition>
     </PageShell>
