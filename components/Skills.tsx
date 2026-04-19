@@ -3,11 +3,12 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
 import { skills } from "@/lib/content";
+import Image from "next/image";
 
 const Skills = () => {
     return (
         <motion.section
-            id="skills"
+            id="skill"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
@@ -37,8 +38,20 @@ const Skills = () => {
                         skills.concat(skills).map((skill, index) => (
                             <span 
                                 key={index + skill.label} 
-                                className="rounded-full border border-slate-400 bg-gray px-4 py-2"
+                                className="flex items-center gap-2 rounded-full border border-slate-400 bg-gray px-4 py-2 transition-all duration-500 hover:-translate-y-2 hover:scale-102 cursor-pointer"
                             >
+
+                                {
+                                    skill.icon 
+                                    &&  <Image 
+                                            width={100}
+                                            height={100}
+                                            src={skill.icon}
+                                            alt="Skill Icon"
+                                            className="w-6 rounded-full"
+                                        />
+                                }
+                                
                                 {skill.label}
                             </span>
                         ))

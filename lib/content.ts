@@ -31,6 +31,7 @@ export const navLinks: NavLink[] = [
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Work", href: "#work" },
+  { label: "Skill", href: "#skill" }
 ];
 
 export const hero: HeroContent = {
@@ -41,28 +42,29 @@ export const hero: HeroContent = {
 };
 
 export interface Skill {
+  icon?: string | null;
   label: string;
 }
 
 export const skills: Skill[] = [
-  { label: "UI/UX Design" },
+  { icon: '/tailwindcss.png', label: "Tailwind CSS" },
+  { icon: '/typescript.png', label: "TypeScript" },
+  { icon: '/framer.svg', label: "Framer Motion" },
+  { icon: "/next.js.png", label: "Next.js" },
+  { icon: "/react.png", label: "React" },
+  { icon: "/postman.png", label: "Postman" },
+  { icon: "/sass.png", label: "Saas" },
   { label: "Accessibility" },
   { label: "Performance" },
-  { label: "JavaScript" },
-  { label: "React" },
-  { label: "Framer Motion" },
-  { label: "Tailwind CSS" },
-  { label: "TypeScript" },
-  { label: "Next.js" },
-  { label: "UI/UX Design" },
+  { icon: '/tailwindcss.png', label: "Tailwind CSS" },
+  { icon: '/typescript.png', label: "TypeScript" },
+  { icon: '/framer.svg', label: "Framer Motion" },
+  { icon: "/next.js.png", label: "Next.js" },
+  { icon: "/react.png", label: "React" },
+  { icon: "/postman.png", label: "Postman" },
+  { icon: "/sass.png", label: "Saas" },
   { label: "Accessibility" },
   { label: "Performance" },
-  { label: "JavaScript" },
-  { label: "React" },
-  { label: "Framer Motion" },
-  { label: "Tailwind CSS" },
-  { label: "TypeScript" },
-  { label: "Next.js" },
 ];
 
 export const projects: Project[] = [
@@ -100,7 +102,12 @@ export const contactContent: ContactContent = {
   email: "hello@bethelfrancis.dev",
 };
 
-export const socialLinks = [
+interface SocialLink {
+    label: string;
+    href: string;
+}
+
+export const socialLinks: SocialLink[] = [
   {
     label: "GitHub",
     href: "https://github.com/",
@@ -120,24 +127,21 @@ export interface Brand {
 }
 
 export const brands: Brand[] = [
-  { label: "Coinbase" },
-  { label: "Spotify" },
-  { label: "Zoom" },
-  { label: "Slack" },
-  { label: "Dropbox" },
-  { label: "Zoc" },
-  { label: "Coinbase" },
-  { label: "Spotify" },
-  { label: "Zoom" },
-  { label: "Slack" },
-  { label: "Dropbox" },
-  { label: "Zoc" },
-  { label: "Coinbase" },
-  { label: "Spotify" },
-  { label: "Zoom" },
-  { label: "Slack" },
-  { label: "Dropbox" },
-  { label: "Zoc" },
+  { label: "HNG 13" },
+  { label: "Automaton Tech" },
+  { label: "Residentia" },
+  { label: "BizVantage" },
+  { label: "Venduora" },
+  { label: "HNG 13" },
+  { label: "Automaton Tech" },
+  { label: "Residentia" },
+  { label: "BizVantage" },
+  { label: "Venduora" },
+  { label: "HNG 13" },
+  { label: "Automaton Tech" },
+  { label: "Residentia" },
+  { label: "BizVantage" },
+  { label: "Venduora" },
 ];
 
 export interface BrandStat {
