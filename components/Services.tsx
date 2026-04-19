@@ -20,8 +20,9 @@ const Services = () => {
                 variants={fadeInUp} 
                 className="max-w-2xl"
             >
-                <button className="bg-transparent text-base text-foreground font-semibold rounded-full px-4 py-1.5 border border-foreground cursor-pointer mb-5">
-                    Services
+                <button className="bg-transparent text-base text-foreground font-semibold rounded-full px-4 py-1.5 border border-foreground cursor-pointer mb-5 group relative overflow-hidden">
+                    <span className="block transition-transform duration-300 group-hover:-translate-y-full">Services</span>
+                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 translate-y-full group-hover:translate-y-0">Services</span>
                 </button>
 
                 <h2 className="text-foreground lg:text-3xl text-2xl mb-3 font-semibold">

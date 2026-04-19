@@ -36,8 +36,9 @@ const Skills = () => {
         >
 
             <motion.div variants={fadeInUp}>
-                <button className="bg-transparent text-base text-foreground font-semibold rounded-full px-4 py-1.5 border border-foreground cursor-pointer">
-                    Skills
+                <button className="bg-transparent text-base text-foreground font-semibold rounded-full px-4 py-1.5 border border-foreground cursor-pointer group relative overflow-hidden">
+                    <span className="block transition-transform duration-300 group-hover:-translate-y-full">Skills</span>
+                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 translate-y-full group-hover:translate-y-0">Skills</span>
                 </button>
 
                 <motion.h2

@@ -41,8 +41,9 @@ const Contact = () => {
         >
             <motion.div variants={fadeInUp} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
-                    <button className="bg-transparent text-base text-foreground font-semibold rounded-full px-4 py-1.5 border border-foreground cursor-pointer">
-                        Contact
+                    <button className="bg-transparent text-base text-foreground font-semibold rounded-full px-4 py-1.5 border border-foreground cursor-pointer group relative overflow-hidden">
+                        <span className="block transition-transform duration-300 group-hover:-translate-y-full">Contact</span>
+                        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 translate-y-full group-hover:translate-y-0">Contact</span>
                     </button>
 
                     <motion.h2
