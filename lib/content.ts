@@ -19,7 +19,6 @@ export interface HeroContent {
 
 export interface ContactContent {
   title: string;
-  subtitle: string;
   description: string;
   email: string;
 }
@@ -96,10 +95,9 @@ export const projects: Project[] = [
 
 export const contactContent: ContactContent = {
   title: "Let’s build something together.",
-  subtitle: "Open for freelance and full-time opportunities",
   description:
-    "I’m always excited to explore new projects and meaningful collaborations. Send a note and I’ll reply quickly.",
-  email: "hello@bethelfrancis.dev",
+    "Open for freelance and full-time opportunities. I’m always excited to explore new projects and meaningful collaborations. Send a note and I’ll reply quickly.",
+  email: "bethelndegonekwu@gmail.com",
 };
 
 interface SocialLink {
@@ -209,21 +207,21 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    company: "Duwwy Studio",
-    role: "Graphic Designer",
-    details: "Delivered high-performance product experiences focused on accessibility, usability, and system consistency, contributing to scalable design systems used across core product flows and improving cross-team collaboration between design and engineering.",
+    company: "Vendoura",
+    role: "Frontend Developer",
+    details: "Engineered performant, accessible frontend systems for a creative business accelerator platform, translating complex founder workflows into clean, scalable UI architecture that unified design and engineering across core education and execution product flows.",
     period: "2015 - 2017",
   },
   {
     company: "Odessa Studio",
     role: "UI/UX Designer",
-    details: "Designed scalable experience systems for desktop and mobile product launches.",
+    details: "Redesigned 15+ UI components improving user satisfaction by 25%, reduced API fetch time by 35% with Axios and React Query caching, and increased landing page conversions by 20% through high-performance, sub-2-second load times. Strengthened cross-team collaboration through structured code reviews and reusable TypeScript component architecture.",
     period: "2017 - 2019",
   },
   {
     company: "Kora Studio",
     role: "UX Researcher",
-    details: "Built evidence-backed product decisions through testing and feedback sessions.",
+    details: "Reduced initial load time by 30% through code splitting, lazy loading, and dynamic imports across a React application. Increased development efficiency by 40% by integrating AI-assisted debugging and code review workflows into daily engineering processes. Improved UI consistency and accessibility compliance across the application, earning positive feedback across 15+ peer code reviews.",
     period: "2018 - 2021",
   },
   {

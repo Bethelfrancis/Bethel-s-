@@ -56,7 +56,7 @@ const Skills = () => {
                 <div 
                     ref={scrollRef}
                     onMouseEnter={() => speedRef.current = 1.5}
-                    onMouseLeave={() => speedRef.current = 2.4}
+                    onMouseLeave={() => speedRef.current = 4}
                     className="flex w-max py-10 gap-5"
                 >
                     {

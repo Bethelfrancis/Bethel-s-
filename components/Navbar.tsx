@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { type NavLink } from "@/lib/content";
 import { navLinks, li } from "@/lib/content";
 import { fadeInUp } from "@/lib/motion";
+import Image from "next/image";
 
 const Navbar = () => {
     return (
@@ -17,10 +18,16 @@ const Navbar = () => {
 
             <div className="mx-auto flex items-center justify-between px-4 py-3 lg:px-10 lg:py-4">
 
-                <Link href="#home" className="text-2xl text-foreground font-medium">
-                    Bethel
+                <Link href="#home" className="font-medium">
+                    <Image 
+                        src={'/logos.png'}
+                        alt="Logo"
+                        width={100}
+                        height={100}
+                        className=" "
+                    />
                 </Link>
-
+                
                 <nav className="hidden md:flex items-center gap-10 text-base font-medium text-muted">
 
                     {
@@ -37,9 +44,14 @@ const Navbar = () => {
 
                 </nav>
 
-                <button className="bg-transparent text-base text-foreground rounded-full px-4 py-1.5 border border-foreground cursor-pointer font-semibold">
-                    Download CV
-                </button>
+                <a 
+                    className="bg-transparent text-base text-foreground rounded-full px-4 py-1.5 border border-foreground cursor-pointer font-semibold group relative overflow-hidden inline-block"
+                    href="/Bethel CV .pdf"
+                    download="Bethel CV .pdf"
+                >
+                    <span className="block transition-transform duration-300 group-hover:-translate-y-full">Download CV</span>
+                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 translate-y-full group-hover:translate-y-0">Download CV</span>
+                </a>
             </div>
 
         </motion.header>

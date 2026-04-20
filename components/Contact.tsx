@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
-import { contactContent, socialLinks } from "@/lib/content";
+import { contactContent } from "@/lib/content";
 import { useState } from "react";
 import { SiGithub, SiX } from 'react-icons/si';
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -22,12 +22,43 @@ const Contact = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const subject = `Message from ${name}`;
-        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-        window.location.href = `mailto:${contactContent.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        setLoading(true);
+        setError("");
+
+        try {
+            const response = await fetch("/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to send message");
+            }
+
+            setSuccess(true);
+            setName("");
+            setEmail("");
+            setMessage("");
+            setTimeout(() => setSuccess(false), 3000);
+        } catch (err) {
+            setError("Failed to send message. Please try again.");
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -41,9 +72,8 @@ const Contact = () => {
         >
             <motion.div variants={fadeInUp} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
-                    <button className="bg-transparent text-base text-foreground font-semibold rounded-full px-4 py-1.5 border border-foreground cursor-pointer group relative overflow-hidden">
-                        <span className="block transition-transform duration-300 group-hover:-translate-y-full">Contact</span>
-                        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 translate-y-full group-hover:translate-y-0">Contact</span>
+                    <button className="bg-transparent text-base text-foreground font-semibold rounded-full px-4 py-1.5 border border-foreground cursor-pointer">
+                        Contact
                     </button>
 
                     <motion.h2
@@ -55,30 +85,37 @@ const Contact = () => {
 
                     <motion.p
                         variants={fadeInUp}
-                        className="mt-4 text-foreground/80 lg:text-lg text-base lg:max-w-4xl"
-                    >
-                        {contactContent.subtitle}
-                    </motion.p>
-
-                    <motion.p
-                        variants={fadeInUp}
-                        className="mt-4 text-foreground/80 lg:text-lg text-base lg:max-w-4xl"
+                        className="mt-4 text-foreground/80 lg:text-lg text-base lg:max-w-lg"
                     >
                         {contactContent.description}
                     </motion.p>
 
-                    <motion.a
-                        variants={fadeInUp}
-                        href={`mailto:${contactContent.email}`}
-                        className="inline-block mt-6 bg-foreground text-background px-6 py-3 rounded-full font-semibold hover:bg-foreground/90 transition-colors"
-                    >
-                        Send a Message
-                    </motion.a>
-
 
                 </div>
 
-                <motion.div variants={fadeInUp} className="flex flex-col">
+                <motion.div variants={fadeInUp} className="flex flex-col mt-10">
+                    {success && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg text-sm"
+                        >
+                            Message sent successfully! I'll get back to you soon.
+                        </motion.div>
+                    )}
+                    
+                    {error && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg text-sm"
+                        >
+                            {error}
+                        </motion.div>
+                    )}
+
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
                             <label htmlFor="name" className="block text-foreground font-semibold mb-2">Name</label>
@@ -88,7 +125,8 @@ const Contact = () => {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
-                                className="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-foreground"
+                                disabled={loading}
+                                className="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-foreground disabled:opacity-50"
                             />
                         </div>
                         <div>
@@ -99,7 +137,8 @@ const Contact = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-foreground"
+                                disabled={loading}
+                                className="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-foreground disabled:opacity-50"
                             />
                         </div>
                         <div>
@@ -109,15 +148,17 @@ const Contact = () => {
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
                                 required
+                                disabled={loading}
                                 rows={5}
-                                className="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-foreground resize-none"
+                                className="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-foreground resize-none disabled:opacity-50"
                             />
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-foreground text-background px-6 py-3 rounded-full font-semibold hover:bg-foreground/90 transition-colors"
+                            disabled={loading}
+                            className="w-full bg-foreground text-background px-6 py-3 rounded-full font-semibold hover:bg-foreground/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            Send Message
+                            {loading ? "Sending..." : "Send Message"}
                         </button>
                     </form>
                 </motion.div>

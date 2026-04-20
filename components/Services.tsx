@@ -33,8 +33,9 @@ const Services = () => {
                     The Services I Offer and the Standard I Keep
                 </p>
 
-                <button className="bg-foreground text-base text-background font-semibold rounded-full px-4 py-1.5 cursor-pointer mt-5">
-                    Contact Me
+                <button className="bg-foreground text-base text-background font-semibold rounded-full px-4 py-1.5 cursor-pointer mt-5 group relative overflow-hidden inline-block">
+                    <span className="block transition-transform duration-300 group-hover:-translate-y-full">Contact Me</span>
+                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 translate-y-full group-hover:translate-y-0">Contact Me</span>
                 </button>
             </motion.div>
 
