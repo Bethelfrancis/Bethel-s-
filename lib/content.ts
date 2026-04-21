@@ -142,17 +142,17 @@ export interface Brand {
 }
 
 export const brands: Brand[] = [
-  { icon: "/hng.jfif", label: "HNG 13" },
+  { icon: "/hng.png", label: "HNG 13" },
   { icon: "/ats.webp", label: "Automaton Tech" },
   { label: "Residentia" },
   { label: "BizVantage" },
   { icon: '/vendo.png', label: "Venduora" },
-  { icon: "/hng.jfif", label: "HNG 13" },
+  { icon: "/hng.png", label: "HNG 13" },
   { icon: "/ats.webp", label: "Automaton Tech" },
   { label: "Residentia" },
   { label: "BizVantage" },
   { icon: '/vendo.png', label: "Venduora" },
-  { icon: "/hng.jfif", label: "HNG 13" },
+  { icon: "/hng.png", label: "HNG 13" },
   { icon: "/ats.webp", label: "Automaton Tech" },
   { label: "Residentia" },
   { label: "BizVantage" },
@@ -223,7 +223,7 @@ export const experience: ExperienceItem[] = [
     period: "Nov 2025 - Feb 2026",
   },
   {
-    logo: '/hng.jfif',
+    logo: '/hng.png',
     company: "HNG Tech",
     role: "Frontend Developer Intern",
     details: "Reduced initial load time by 30% through code splitting, lazy loading, and dynamic imports across a React application. Increased development efficiency by 40% by integrating AI-assisted debugging and code review workflows into daily engineering processes. Improved UI consistency and accessibility compliance across the application, earning positive feedback across 15+ peer code reviews.",
