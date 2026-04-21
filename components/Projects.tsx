@@ -4,9 +4,16 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { portfolioItems } from "@/lib/content";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
-import { ArrowUpRightIcon } from "lucide-react";
+import { ArrowUpRightIcon, ImageIcon } from "lucide-react";
+import { useState } from "react";
+import Link from "next/link";
 
 const Projects = () => {
+    const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
+
+    const handleImageError = (title: string) => {
+        setFailedImages(prev => new Set([...prev, title]));
+    };
     return (
         <motion.section
             id="work"
@@ -39,20 +46,31 @@ const Projects = () => {
                 >
                     {
                         portfolioItems.map((item) => (
-                            <motion.article
+                            <Link
+                                href={item.link}
                                 key={item.title}
-                                variants={fadeInUp}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="relative flex items-end h-80 md:h-75 lg:h-70 group overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-102 cursor-pointer"
                             >
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    width={640}
-                                    height={448}
-                                    className="h-full w-full absolute top-0 left-0 object-cover transition-all duration-200 group-hover:scale-103"
-                                />
+                                {
+                                    !failedImages.has(item.title) ? (
+                                        <Image
+                                            src={item.image}
+                                            alt={item.title}
+                                            width={640}
+                                            height={448}
+                                            className="h-full w-full absolute top-0 left-0 object-cover transition-all duration-200 group-hover:scale-103"
+                                            onError={() => handleImageError(item.title)}
+                                        />
+                                    ) : (
+                                        <div className="h-full w-full absolute top-0 left-0 bg-gray-400 flex items-center justify-center">
+                                            <ImageIcon className="w-12 h-12 text-gray-600 opacity-50" />
+                                        </div>
+                                    )
+                                }
 
-                                <div className="w-full flex flex-col items-start text-background p-3">
+                                <div className="w-full flex flex-col items-start text-background p-3 relative z-10">
                                     <button className="z-0 text-xs uppercase font-semibold rounded-full px-3 py-1 border lg:opacity-0 lg:group-hover:opacity-100 lg:translate-y-4 lg:group-hover:translate-y-0 transition-all duration-700">
                                         {item.category}
                                     </button>
@@ -67,7 +85,7 @@ const Projects = () => {
                                         />
                                     </div>
                                 </div>
-                            </motion.article>
+                            </Link>
                         ))
                     }
                 </motion.div>

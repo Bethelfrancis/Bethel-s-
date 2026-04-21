@@ -14,7 +14,7 @@ const Footer = () => {
                     Open to Collaboration
                 </h2>
                 
-                <a href="#contact" className="bg-black text-base font-semibold rounded-full px-10 py-3 cursor-pointer">
+                <a href="#contact" className="bg-black text-base font-semibold rounded-full px-10 py-3 cursor-pointer text-center">
                     Get in Touch
                 </a>
             </div>

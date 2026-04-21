@@ -38,9 +38,9 @@ const Hero = () => {
                         className="w-60 h-70 absolute right-0 overflow-hidden rounded-4xl border border-slate-200/90"
                     >
                         <Image
-                            src="/dope.png"
+                            src="/me.png"
                             alt="Portfolio showcase image"
-                            width={200}
+                            width={400}
                             height={100}
                             className="w-full h-full object-cover"
                             priority
@@ -73,7 +73,7 @@ const Hero = () => {
                         className="w-full h-100 sm:h-180 overflow-hidden rounded-2xl border border-slate-200/90"
                     >
                         <Image
-                            src="/dope.png"
+                            src="/me.png"
                             alt="Portfolio showcase image"
                             width={200}
                             height={100}

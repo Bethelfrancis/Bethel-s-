@@ -4,9 +4,15 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
 import { skills } from "@/lib/content";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ImageIcon } from "lucide-react";
 
 const Skills = () => {
+    const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
+
+    const handleImageError = (skillLabel: string) => {
+        setFailedImages(prev => new Set([...prev, skillLabel]));
+    };
     const scrollRef = useRef<HTMLDivElement>(null);
     const speedRef = useRef(1);
 
@@ -55,8 +61,8 @@ const Skills = () => {
     
                 <div 
                     ref={scrollRef}
-                    onMouseEnter={() => speedRef.current = 1.5}
-                    onMouseLeave={() => speedRef.current = 4}
+                    onMouseEnter={() => speedRef.current = 1}
+                    onMouseLeave={() => speedRef.current = 3}
                     className="flex w-max py-10 gap-5"
                 >
                     {
@@ -67,14 +73,16 @@ const Skills = () => {
                             >
 
                                 {
-                                    skill.icon 
-                                    &&  <Image 
+                                    skill.icon && !failedImages.has(skill.label)
+                                    ?  <Image 
                                             width={100}
                                             height={100}
                                             src={skill.icon}
                                             alt="Skill Icon"
                                             className="w-6 rounded-full"
+                                            onError={() => handleImageError(skill.label)}
                                         />
+                                    : skill.icon && <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center"><ImageIcon className="w-3 h-3 text-gray-600" /></div>
                                 }
                                 
                                 {skill.label}
