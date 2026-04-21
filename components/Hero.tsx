@@ -29,7 +29,6 @@ const Hero = () => {
                 initial="hidden"
                 animate="show"
                 variants={staggerContainer}
-                transition={{ delay: 6.1, staggerChildren: 0.14, delayChildren: 0.08 }}
                 className="lg:h-screen flex flex-col lg:justify-between mx-auto gap-12 px-4 lg:px-10 py-14"
             >
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { footerNav } from "@/lib/content";
 import { SocialLinks } from "./SocialLinks";
+import Image from "next/image";
 
 const Footer = () => {
     return (
@@ -13,18 +14,25 @@ const Footer = () => {
                     Open to Collaboration
                 </h2>
                 
-                <button className="bg-black text-base font-semibold rounded-full px-10 py-3 cursor-pointer">
+                <a href="#contact" className="bg-black text-base font-semibold rounded-full px-10 py-3 cursor-pointer">
                     Get in Touch
-                </button>
+                </a>
             </div>
 
 
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mt-20 border-y-2 border-black py-10 space-y-10">
 
                 <div className="lg:max-w-xs">
-                    <Link href="#home" className="text-2xl font-medium">
-                        Bethel
+                    <Link href="#home">
+                        <Image 
+                            src={'/logos.png'}
+                            alt="Logo"
+                            width={100}
+                            height={100}
+                            className="invert-100"
+                        />
                     </Link>
+
                     <p className="mt-4 text-sm leading-7 text-slate-300 lg:text-base">
                         Available for freelance work and collaboration, focused on building scalable, high-performance frontend applications.
                     </p>

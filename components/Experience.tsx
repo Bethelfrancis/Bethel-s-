@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { experience } from "@/lib/content";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
+import Image from "next/image";
 
 const Experience = () => {
     return (
@@ -12,7 +13,7 @@ const Experience = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
-            className="bg-[#fafafa] py-14 mt-20"
+            className="bg-[#fafafa] py-14"
         >
 
             <motion.div variants={fadeInUp} className="px-4 lg:px-10">
@@ -42,9 +43,21 @@ const Experience = () => {
                             className="grid gap-6 border-t border-slate-200/80 sm:grid-cols-[1.5fr_0.5fr] sm:items-center hover:bg-[#f0eeee] cursor-pointer"
                         >
                             <div className="max-w-3xl">
-                                <p className="px-4 lg:px-10 pt-8 text-sm text-slate-500">{item.company}</p>
-                                <h3 className="px-4 lg:px-10 mt-2 text-xl font-semibold text-slate-950">{item.role}</h3>
-                                <p className="px-4 lg:px-10 pb-8 mt-3 text-sm leading-7 text-slate-600">{item.details}</p>
+                                <div className="px-4 lg:px-10 pt-8 flex items-center gap-3">
+                                    <Image 
+                                        width={100}
+                                        height={100}
+                                        src={item.logo}
+                                        alt={item.company + item.logo}
+                                        className="w-8"
+                                    />
+                                    <p className="text-base text-slate-500">
+                                        {item.company}
+                                    </p>
+                                </div>
+                                
+                                <h3 className="px-4 lg:px-10 mt-3 text-xl font-semibold text-slate-950">{item.role}</h3>
+                                <p className="px-4 lg:px-10 pb-8 mt-4 text-sm leading-7 text-slate-600">{item.details}</p>
                             </div>
                             <p className="px-4 lg:px-10 text-right text-base font-semibold text-slate-900">{item.period}</p>
                         </motion.div>

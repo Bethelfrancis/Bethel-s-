@@ -13,7 +13,7 @@ const Services = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.4 }}
             variants={staggerContainer}
-            className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-10 px-4 lg:px-10"
+            className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-10 px-4 lg:px-10 mt-15"
         >
 
             <motion.div 
@@ -29,14 +29,13 @@ const Services = () => {
                     Everything I Build Is Designed to Work for You
                 </h2>
                 
-                <p className="text-grey text-base">
+                <p className="text-grey text-base mb-5">
                     The Services I Offer and the Standard I Keep
                 </p>
 
-                <button className="bg-foreground text-base text-background font-semibold rounded-full px-4 py-1.5 cursor-pointer mt-5 group relative overflow-hidden inline-block">
-                    <span className="block transition-transform duration-300 group-hover:-translate-y-full">Contact Me</span>
-                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 translate-y-full group-hover:translate-y-0">Contact Me</span>
-                </button>
+                <a href="#contact" className="bg-foreground text-base text-background font-semibold rounded-full px-5 py-2 cursor-pointer ">
+                    Contact Me
+                </a>
             </motion.div>
 
             <motion.div className="lg:w-[80%] grid justify-between gap-6 md:grid-cols-2 mt-5">

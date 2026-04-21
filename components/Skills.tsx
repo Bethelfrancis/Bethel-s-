@@ -32,7 +32,7 @@ const Skills = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
-            className="px-4 lg:px-10 py-14"
+            className="px-4 lg:px-10 py-20"
         >
 
             <motion.div variants={fadeInUp}>

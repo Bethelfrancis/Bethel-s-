@@ -27,10 +27,10 @@ export const li = "relative cursor-pointer text-foreground after:content-[''] af
 
 export const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Experience", href: "#experience" },
   { label: "Work", href: "#work" },
-  { label: "Skill", href: "#skill" }
+  { label: "Services", href: "#services" },
+  { label: "Skill", href: "#skill" },
+  { label: "Experience", href: "#experience" }
 ];
 
 export const hero: HeroContent = {
@@ -108,54 +108,55 @@ interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     label: "GitHub",
-    href: "https://github.com/",
+    href: "https://github.com/Bethelfrancis",
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/bethel-francis-5b4346328",
   },
   {
     label: "Facebook",
-    href: "https://facebook.com/",
+    href: "https://facebook.com/profile.php?id=61552046277969",
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/",
+    href: "https://instagram.com/bethelfrancis07",
   },
   {
     label: "X",
-    href: "https://x.com/",
+    href: "https://x.com/bethelfrancis07",
   },
   {
     label: "YouTube",
-    href: "https://youtube.com/",
+    href: "https://youtube.com/@bethelfrancis07",
   },
   {
     label: "Email",
-    href: "mailto:hello@bethelfrancis.dev",
+    href: "mailto:bethelndegonekwu@gmail.com",
   },
 ];
 
 export interface Brand {
+  icon?: string | null;
   label: string;
 }
 
 export const brands: Brand[] = [
-  { label: "HNG 13" },
-  { label: "Automaton Tech" },
+  { icon: "/hng.jfif", label: "HNG 13" },
+  { icon: "/ats.webp", label: "Automaton Tech" },
   { label: "Residentia" },
   { label: "BizVantage" },
-  { label: "Venduora" },
-  { label: "HNG 13" },
-  { label: "Automaton Tech" },
+  { icon: '/vendo.png', label: "Venduora" },
+  { icon: "/hng.jfif", label: "HNG 13" },
+  { icon: "/ats.webp", label: "Automaton Tech" },
   { label: "Residentia" },
   { label: "BizVantage" },
-  { label: "Venduora" },
-  { label: "HNG 13" },
-  { label: "Automaton Tech" },
+  { icon: '/vendo.png', label: "Venduora" },
+  { icon: "/hng.jfif", label: "HNG 13" },
+  { icon: "/ats.webp", label: "Automaton Tech" },
   { label: "Residentia" },
   { label: "BizVantage" },
-  { label: "Venduora" },
+  { icon: '/vendo.png', label: "Venduora" },
 ];
 
 export interface BrandStat {
@@ -199,6 +200,7 @@ export const featureCards: ServiceFeature[] = [
 ];
 
 export interface ExperienceItem {
+  logo: string,
   company: string;
   role: string;
   details: string;
@@ -207,29 +209,26 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
+    logo: '/vendo.png',
     company: "Vendoura",
     role: "Frontend Developer",
     details: "Engineered performant, accessible frontend systems for a creative business accelerator platform, translating complex founder workflows into clean, scalable UI architecture that unified design and engineering across core education and execution product flows.",
-    period: "2015 - 2017",
+    period: "Dec 2025 - Present",
   },
   {
-    company: "Odessa Studio",
-    role: "UI/UX Designer",
+    logo: '/ats.webp',
+    company: "Automotion Tech",
+    role: "Frontend Developer",
     details: "Redesigned 15+ UI components improving user satisfaction by 25%, reduced API fetch time by 35% with Axios and React Query caching, and increased landing page conversions by 20% through high-performance, sub-2-second load times. Strengthened cross-team collaboration through structured code reviews and reusable TypeScript component architecture.",
-    period: "2017 - 2019",
+    period: "Nov 2025 - Feb 2026",
   },
   {
-    company: "Kora Studio",
-    role: "UX Researcher",
+    logo: '/hng.jfif',
+    company: "HNG Tech",
+    role: "Frontend Developer Intern",
     details: "Reduced initial load time by 30% through code splitting, lazy loading, and dynamic imports across a React application. Increased development efficiency by 40% by integrating AI-assisted debugging and code review workflows into daily engineering processes. Improved UI consistency and accessibility compliance across the application, earning positive feedback across 15+ peer code reviews.",
-    period: "2018 - 2021",
-  },
-  {
-    company: "Apple Inc.",
-    role: "Product Designer",
-    details: "Delivered polished product experiences with a focus on performance and accessibility.",
-    period: "2021 - Now",
-  },
+    period: "Oct - Nov 2025",
+  }
 ];
 
 export interface PortfolioItem {

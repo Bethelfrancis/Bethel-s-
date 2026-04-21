@@ -18,16 +18,15 @@ const Navbar = () => {
 
             <div className="mx-auto flex items-center justify-between px-4 py-3 lg:px-10 lg:py-4">
 
-                <Link href="#home" className="font-medium">
+                <Link href="#home">
                     <Image 
                         src={'/logos.png'}
                         alt="Logo"
                         width={100}
                         height={100}
-                        className=" "
                     />
                 </Link>
-                
+
                 <nav className="hidden md:flex items-center gap-10 text-base font-medium text-muted">
 
                     {
